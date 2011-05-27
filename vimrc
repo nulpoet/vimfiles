@@ -256,7 +256,7 @@ let g:snips_author = "Martin Grenfell"
 let Tlist_Compact_Format = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_Exit_OnlyWindow = 0
-let Tlist_WinWidth = 35
+let Tlist_WinWidth = 20
 let tlist_php_settings = 'php;c:class;f:Functions'
 let Tlist_Use_Right_Window=1
 let Tlist_GainFocus_On_ToggleOpen = 1
@@ -266,7 +266,7 @@ let Tlist_Show_One_File = 1
 
 "nerdtree settings
 let g:NERDTreeMouseMode = 2
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 20
 
 "explorer mappings
 nnoremap <f1> :BufExplorer<cr>
@@ -329,4 +329,7 @@ autocmd BufReadPost fugitive://*
   \ endif
 color blacksea
 set colorcolumn=80
-noremap <silent> <F8> :TlistToggle<CR>
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar"
+
