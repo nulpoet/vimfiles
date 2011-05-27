@@ -301,6 +301,11 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
+"Function to maximise the vim editor window. To be called in gvimrc
+
+function Maximize_Window()
+    silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+endfunction
 
 "jump to last cursor position when opening a file
 "dont do it when writing a commit log entry
@@ -324,12 +329,12 @@ autocmd filetype svn,*commit* setlocal spell
 "add a mapping on .. to view parent tree
 autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost fugitive://*
-  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-  \   nnoremap <buffer> .. :edit %:h<CR> |
-  \ endif
+            \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+            \   nnoremap <buffer> .. :edit %:h<CR> |
+            \ endif
 color blacksea
 set colorcolumn=80
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar"
-
+set guifont=Monospace\ 12
